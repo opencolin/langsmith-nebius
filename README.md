@@ -24,19 +24,19 @@ Estimated time: ~3 minutes.
 
 In the LangSmith left sidebar, expand **Integrations** and click **Model configurations**.
 
-![Step 1](1-click%20model%20configurations.png)
+<img src="1-click%20model%20configurations.png" alt="Step 1" width="300">
 
 ## Step 2 — Click Create
 
 On the **Configurations** page, click the blue **+ Create** button.
 
-![Step 2](2-click%20create%20under%20configurations.png)
+<img src="2-click%20create%20under%20configurations.png" alt="Step 2" width="600">
 
 ## Step 3 — Select "OpenAI Compatible Endpoint" as the provider
 
 In the **Provider** dropdown, scroll to the **Other** section and pick **OpenAI Compatible Endpoint**. (Nebius is not a first-class provider in LangSmith — that's fine, the OpenAI-compatible path is exactly what Token Factory expects.)
 
-![Step 3](3-%20select%20openai%20compatibile%20endpoint.png)
+<img src="3-%20select%20openai%20compatibile%20endpoint.png" alt="Step 3" width="450">
 
 ## Step 4 — Type the model name
 
@@ -48,7 +48,7 @@ Qwen/Qwen3.5-397B-A17B-fast
 
 If the model isn't in the autocomplete list, the helper text confirms you can type it in.
 
-![Step 4](4-copy%20paste%20the%20model%20name.png)
+<img src="4-copy%20paste%20the%20model%20name.png" alt="Step 4" width="450">
 
 ## Step 5 — Set the API Key Name to `NEBIUS_API_KEY`
 
@@ -60,7 +60,7 @@ NEBIUS_API_KEY
 
 You'll create the matching secret in Step 14–16.
 
-![Step 5](5-set%20api%20key%20name%20to%20NEBIUS_API_KEY.png)
+<img src="5-set%20api%20key%20name%20to%20NEBIUS_API_KEY.png" alt="Step 5" width="280">
 
 ## Step 6 — Set the Base URL to the Token Factory endpoint
 
@@ -72,13 +72,13 @@ https://api.tokenfactory.nebius.com/v1/
 
 The trailing slash matters — keep it.
 
-![Step 6](6-copy%20paste%20the%20Token%20Factory%20URL.png)
+<img src="6-copy%20paste%20the%20Token%20Factory%20URL.png" alt="Step 6" width="600">
 
 ## Step 7 — Scroll down to the Provider Config section
 
 Below the Temperature/Max Tokens area you'll find a **Provider Config** block. Scroll down to it.
 
-![Step 7](7-scroll%20down.png)
+<img src="7-scroll%20down.png" alt="Step 7" width="700">
 
 ## Step 8 — Switch Provider API from Responses to Chat Completion
 
@@ -86,31 +86,31 @@ Token Factory implements the OpenAI **Chat Completions** API, **not** the newer 
 
 > Skipping this step is the most common cause of 404s and "unknown route" errors against Token Factory.
 
-![Step 8](8-change%20Responses%20to%20Chat%20Completion.png)
+<img src="8-change%20Responses%20to%20Chat%20Completion.png" alt="Step 8" width="320">
 
 ## Step 9 — Save the configuration
 
 Click **Save** at the bottom of the dialog.
 
-![Step 9](9-click%20save.png)
+<img src="9-click%20save.png" alt="Step 9" width="700">
 
 ## Step 10 — Confirm the config appears in the list
 
 You should now see a single row in **Configurations** — provider `OpenAI Compa…`, model `Qwen/Qwen3.5-397B…`. Give it a recognizable name (e.g. **Nebius/Qwen**) if it isn't already named.
 
-![Step 10](10-you'll%20see%20your%20config.png)
+<img src="10-you%27ll%20see%20your%20config.png" alt="Step 10" width="700">
 
 ## Step 11 — Open the Available Models dropdown for Fleet
 
 Scroll to **Feature Access** on the same Model configurations page. Each LangSmith feature (Playground, Evaluators, Fleet, Polly, Insights, Issues Agent…) has its own provider/model controls. Click the **Available Models** dropdown on the **Fleet** row.
 
-![Step 11](11-select%20the%20available%20models%20drop%20down%20for%20Fleet.png)
+<img src="11-select%20the%20available%20models%20drop%20down%20for%20Fleet.png" alt="Step 11" width="600">
 
 ## Step 12 — Enable Nebius/Qwen for Fleet
 
 In the dropdown, scroll to the **Workspace models** section at the bottom and tick **Nebius/Qwen**. This makes the configuration *eligible* to be used by Fleet.
 
-![Step 12](12-select%20Nebius%20as%20an%20available%20model.png)
+<img src="12-select%20Nebius%20as%20an%20available%20model.png" alt="Step 12" width="350">
 
 ## Step 13 — Set Nebius/Qwen as the Default Model
 
@@ -118,19 +118,19 @@ Now use the **Default Model** column on the Fleet row and pick **Nebius/Qwen**. 
 
 Repeat Steps 11–13 for any other features you want backed by Nebius (Playground, Evaluators, etc. — they each have their own row).
 
-![Step 13](13-select%20Nebius%20as%20the%20default%20model.png)
+<img src="13-select%20Nebius%20as%20the%20default%20model.png" alt="Step 13" width="350">
 
 ## Step 14 — Open Provider secrets
 
 The configuration references a secret called `NEBIUS_API_KEY` but that secret doesn't exist yet. In the left sidebar under **Integrations**, click **Provider secrets**.
 
-![Step 14](14-go%20to%20provider%20secrets.png)
+<img src="14-go%20to%20provider%20secrets.png" alt="Step 14" width="280">
 
 ## Step 15 — Click + Secret
 
 On the **Workspace Secrets** page, click the blue **+ Secret** button.
 
-![Step 15](15-add%20a%20Secret.png)
+<img src="15-add%20a%20Secret.png" alt="Step 15" width="600">
 
 ## Step 16 — Add the NEBIUS_API_KEY value
 
@@ -141,7 +141,7 @@ In the **Add secret** dialog:
 
 Click **Save**.
 
-![Step 16](16-enter%20the%20NEBIUS_API_KEY.png)
+<img src="16-enter%20the%20NEBIUS_API_KEY.png" alt="Step 16" width="500">
 
 ---
 
