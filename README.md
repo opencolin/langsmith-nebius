@@ -6,7 +6,7 @@ You will end up with:
 
 - A Model Configuration named **Nebius/Qwen** that points at `https://api.tokenfactory.nebius.com/v1/`
 - A workspace secret named **`NEBIUS_API_KEY`** holding your Token Factory key
-- Fleet (and Playground/Evaluators) using that configuration as the default model
+- Each LangSmith feature you care about — **Playground, Evaluators, Fleet, Polly, Insights, Issues Agent** — using that configuration as its default model
 
 Estimated time: ~3 minutes.
 
@@ -116,9 +116,21 @@ In the dropdown, scroll to the **Workspace models** section at the bottom and ti
 
 Now use the **Default Model** column on the Fleet row and pick **Nebius/Qwen**. From this point on, Fleet routes traffic to Token Factory unless overridden per-run.
 
-Repeat Steps 11–13 for any other features you want backed by Nebius (Playground, Evaluators, etc. — they each have their own row).
-
 <img src="img/13-select%20Nebius%20as%20the%20default%20model.png" alt="Step 13" width="350">
+
+> ### Repeat Steps 11–13 for every other feature
+>
+> The Feature Access table has a separate row for each LangSmith feature, and **each row's Available Models and Default Model are independent**. Setting Fleet does **not** apply to anything else.
+>
+> At minimum, repeat Steps 11–13 for:
+>
+> - **Playground** — otherwise the playground falls back to OpenAI/Anthropic defaults
+> - **Evaluators** — otherwise eval runs will not use Nebius
+> - **Polly**
+> - **Insights (Thinking)** and **Insights (Summarization)**
+> - **Issues Agent (Heavy)** and **Issues Agent (Light)**
+>
+> Any feature you skip will keep its previous default and silently route traffic somewhere other than Token Factory.
 
 ## Step 14 — Open Provider secrets
 
@@ -159,4 +171,4 @@ If you see an auth error, double-check that the secret **Key** in Step 16 matche
 
 - The same configuration can serve any Token Factory model — just create additional Model Configurations with different model IDs and reuse the same `NEBIUS_API_KEY` secret.
 - The **API Key Name** is a *reference* to a workspace secret, not the literal key. This is what lets you rotate the underlying token without editing every model configuration.
-- "Default Model" is a per-feature setting. Setting it for Fleet does **not** automatically set it for Playground, Evaluators, Insights, etc. — repeat Steps 11–13 for each feature you care about.
+- "Default Model" is a per-feature setting (see the callout under Step 13). Setting it for Fleet does **not** automatically set it for Playground, Evaluators, Polly, Insights, or Issues Agent — every row in the Feature Access table is independent.
